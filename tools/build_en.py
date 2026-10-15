@@ -18,7 +18,7 @@ PAIRS = [
     ('content="Coach agile freelance à Lille. Transformation à l\'échelle, passage du projet au produit, SAFe, PI Planning et pilotage de la delivery."',
      'content="Freelance agile coach in Lille, France. Large-scale transformation, project-to-product shift, SAFe, PI Planning and delivery steering."'),
     ('content="assets/mattieu', 'content="../assets/mattieu'),
-    ('<link rel="stylesheet" href="assets/site.css">', '<link rel="stylesheet" href="../assets/site.css">'),
+    ('<link rel="stylesheet" href="assets/site.css?v=2">', '<link rel="stylesheet" href="../assets/site.css">'),
     ('<link rel="alternate" hreflang="fr" href="./">\n<link rel="alternate" hreflang="en" href="en/">',
      '<link rel="alternate" hreflang="fr" href="../">\n<link rel="alternate" hreflang="en" href="./">'),
     # header

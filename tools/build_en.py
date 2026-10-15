@@ -35,7 +35,7 @@ PAIRS = [
     # hero
     ("— Coach agile, transformation à l'échelle &amp; entrepreneur · Lille", "— Agile coach, large-scale transformation &amp; entrepreneur · Lille"),
     ('<p class="tagline">Je fais <mark>bouger les lignes</mark>.</p>', '<p class="tagline">I get things <mark>moving</mark>.</p>'),
-    ("<u>planification qui ne tient pas</u>, <u>transformation qui s'essouffle</u>, <u>équipes en silos</u>, <u>delivery imprévisible</u> : j'aide les organisations à embarquer leurs équipes et à livrer de la valeur, durablement.",
+    ("<u>Planification qui ne tient pas</u>, <u>transformation qui s'essouffle</u>, <u>équipes en silos</u>, <u>delivery imprévisible</u> : j'aide les organisations à embarquer leurs équipes et à livrer de la valeur, durablement.",
      "<u>Plans that don't hold</u>, <u>a transformation running out of steam</u>, <u>siloed teams</u>, <u>unpredictable delivery</u>: I help organisations bring their teams on board and deliver value, for the long run."),
     ('Me contacter sur LinkedIn</a>', 'Contact me on LinkedIn</a>', 2),
     ('<a class="btn btn-ghost" href="#expertises">Voir mes expertises</a>', '<a class="btn btn-ghost" href="#expertises">See my expertise</a>'),

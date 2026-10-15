@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coach Agile à Lille | Mattieu Bernard-Guêle</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Coach agile freelance à Lille. Transformation à l'échelle, passage du projet au produit, SAFe, PI Planning et pilotage de la delivery. MBG Consulting.">
+<meta name="author" content="Mattieu Bernard-Guêle">
+<meta name="theme-color" content="#0b0f1a">
+<meta name="color-scheme" content="dark light">
+<meta name="geo.region" content="FR-HDF">
+<meta name="geo.placename" content="Lille">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Mattieu Bernard-Guêle · MBG Consulting">
+<meta property="og:title" content="Coach Agile à Lille | Mattieu Bernard-Guêle">
+<meta property="og:description" content="Coach agile freelance à Lille. Transformation à l'échelle, passage du projet au produit, SAFe, PI Planning et pilotage de la delivery.">
+<meta property="og:image" content="assets/mattieu-bernard-guele-coach-agile-lille.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: editorial single column, sticky header, grid-ruled hero with portrait as FIG. 01, numbered § sections */
+:root{
+  color-scheme: dark;
+  --bg:#0b0f1a; --bg-elevated:#111727; --fg:#e6eaf2; --muted:#94a3b8;
+  --line:#1e2636; --line-strong:#334155; --accent:#7da6ff; --accent-soft:#15213f;
+  --on-accent:#0b0f1a; --hi:#d4ff4f; --on-hi:#0b0f1a;
+  --grid: color-mix(in srgb, #e6eaf2 7%, transparent);
+  --btn-bg:#e6eaf2; --btn-fg:#0b0f1a;
+  --todo:#f5b14c;
+  --shadow: 0 1px 2px #0000004d, 0 12px 32px #00000059;
+  --font-display:"Space Grotesk", Arial, sans-serif;
+  --font-body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --wrap: 72rem;
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){
+  color-scheme: light;
+  --bg:#f7f8fa; --bg-elevated:#ffffff; --fg:#0b1220; --muted:#475569;
+  --line:#d7dce5; --line-strong:#94a3b8; --accent:#1d4ed8; --accent-soft:#e4ebfb;
+  --on-accent:#ffffff; --hi:#c8f03c; --on-hi:#0b1220;
+  --grid: color-mix(in srgb, #0b1220 6%, transparent);
+  --btn-bg:#0b1220; --btn-fg:#f7f8fa; --todo:#b45309;
+  --shadow: 0 1px 2px #0b12200a, 0 12px 32px #0b12200f;
+}}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#f7f8fa; --bg-elevated:#ffffff; --fg:#0b1220; --muted:#475569;
+  --line:#d7dce5; --line-strong:#94a3b8; --accent:#1d4ed8; --accent-soft:#e4ebfb;
+  --on-accent:#ffffff; --hi:#c8f03c; --on-hi:#0b1220;
+  --grid: color-mix(in srgb, #0b1220 6%, transparent);
+  --btn-bg:#0b1220; --btn-fg:#f7f8fa; --todo:#b45309;
+  --shadow: 0 1px 2px #0b12200a, 0 12px 32px #0b12200f;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:1.0625rem;line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+.mono{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+@media (min-width:48rem){.wrap{padding-left:max(28px, env(safe-area-inset-left,0px));padding-right:max(28px, env(safe-area-inset-right,0px))}}
+.skip{position:absolute;left:-999px;top:0}
+.skip:focus{left:16px;top:16px;z-index:100;background:var(--btn-bg);color:var(--btn-fg);padding:.5rem 1rem;border-radius:6px}
+
+/* draft markers: things to confirm with Mattieu */
+.todo{outline:1px dashed var(--todo);outline-offset:2px;border-radius:3px}
+.todo-tag{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--todo);border:1px dashed var(--todo);border-radius:3px;padding:.05rem .35rem;margin-left:.4rem;white-space:nowrap;vertical-align:middle}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:1rem;height:4.25rem}
+.brand{font-family:var(--font-display);font-weight:600;font-size:1.05rem;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand span{font-family:var(--font-mono);color:var(--muted);font-weight:400;margin-left:.35rem}
+.nav{display:none;margin-left:auto;gap:1.1rem}
+.nav a{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);white-space:nowrap}
+.nav a b{color:var(--accent);font-weight:500;margin-right:.3rem}
+.nav a:hover{color:var(--fg)}
+.header-actions{display:flex;gap:.6rem;margin-left:auto;align-items:center}
+@media (min-width:72rem){.nav{display:flex}.header-actions{margin-left:1.2rem}}
+.btn-li{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .85rem;border:1px solid var(--line-strong);border-radius:8px;background:var(--bg-elevated);font-weight:600;font-size:.9rem;text-decoration:none}
+.btn-li svg{width:16px;height:16px;fill:currentColor}
+.menu-btn{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:8px;background:var(--bg-elevated);color:var(--fg);display:grid;place-items:center;cursor:pointer}
+@media (min-width:72rem){.menu-btn{display:none}}
+.menu-btn svg{width:18px;height:18px}
+.mobile-nav{border-top:1px solid var(--line);background:var(--bg)}
+.mobile-nav ol{display:grid;padding-block:.75rem 1.25rem}
+.mobile-nav a{display:flex;gap:.9rem;padding:.7rem 0;border-bottom:1px solid var(--line);text-decoration:none;font-family:var(--font-display);font-size:1.15rem}
+.mobile-nav a b{font-family:var(--font-mono);font-size:.75rem;color:var(--accent);font-weight:500;padding-top:.3rem}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:8.5rem 8.5rem;background-position:-1px -1px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;gap:2.5rem;padding-block:3.5rem 3rem}
+@media (min-width:60rem){.hero .wrap{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;gap:4rem;padding-block:5.5rem 4.5rem}}
+.kicker{color:var(--muted)}
+.kicker b{color:var(--accent);font-weight:500}
+.hero h1{font-size:clamp(2.6rem,7.4vw,5.6rem);font-weight:700;letter-spacing:-.035em;margin-top:1.1rem;line-height:.98}
+.hero h1 .surname{display:block}
+.tagline{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:500;margin-top:1.25rem;letter-spacing:-.015em}
+.tagline mark{background:none;color:inherit;box-shadow:inset 0 -.32em 0 var(--hi);color:var(--fg)}
+:root[data-theme="light"] .tagline mark{box-shadow:inset 0 -.32em 0 var(--hi)}
+.lede{margin-top:1rem;max-width:36rem;color:var(--muted)}
+.lede u{color:var(--fg);text-decoration-color:var(--accent);text-underline-offset:.2em;text-decoration-thickness:1px}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.75rem 1.15rem;border-radius:8px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--line-strong)}
+.btn svg{width:16px;height:16px;fill:currentColor}
+.btn-primary{background:var(--btn-bg);color:var(--btn-fg);border-color:var(--btn-bg)}
+.btn-ghost{background:var(--bg-elevated)}
+.btn:hover{transform:translateY(-1px)}
+.btn{transition:transform .15s ease}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.facts dt{color:var(--muted)}
+.facts dd{margin:.35rem 0 0;font-family:var(--font-mono);font-size:.8rem;line-height:1.5}
+@media (max-width:30rem){.facts{grid-template-columns:1fr 1fr}.facts div:last-child{grid-column:1/-1}}
+.portrait{margin:0;justify-self:center;width:100%;max-width:26rem}
+.portrait .frame{position:relative;border:1px solid var(--line-strong);border-radius:6px;overflow:hidden;background:var(--bg-elevated);aspect-ratio:4/5;max-width:100%}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1) contrast(1.05)}
+.portrait .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,color-mix(in srgb,var(--bg) 35%,transparent))}
+.portrait figcaption{margin-top:.8rem;color:var(--muted)}
+
+/* sections */
+section.block{border-bottom:1px solid var(--line)}
+section.block > .wrap{padding-block:5rem}
+@media (min-width:48rem){section.block > .wrap{padding-block:6.5rem}}
+.sec-label{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;color:var(--muted)}
+.sec-label i{font-style:normal;opacity:.5}
+.block h2{font-size:clamp(2rem,4.4vw,2.75rem);margin-top:.6rem}
+.prose{max-width:42rem;margin-top:2rem;display:grid;gap:1.15rem}
+.prose p:first-child{color:var(--fg)}
+.prose p{color:var(--muted)}
+.prose p.strong{color:var(--fg)}
+.intro{max-width:42rem;margin-top:1.25rem;color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:3rem;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.stats li{background:var(--bg);padding:1.4rem 1.25rem}
+.stats strong{display:block;font-family:var(--font-display);font-size:clamp(1.9rem,4vw,2.6rem);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats span{display:block;color:var(--muted);font-size:.92rem;margin-top:.2rem;line-height:1.4}
+@media (max-width:40rem){.stats{grid-template-columns:1fr}}
+
+/* expertises */
+.cards{display:grid;gap:1rem;margin-top:3rem}
+@media (min-width:44rem){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:68rem){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{background:var(--bg-elevated);border:1px solid var(--line);border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;min-width:0;transition:border-color .2s ease}
+.card:hover,.card.linked{border-color:var(--accent)}
+.card .num{font-family:var(--font-mono);font-size:.75rem;color:var(--accent)}
+.card h3{font-size:1.3rem}
+.card p{color:var(--muted);font-size:.98rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;padding-top:.5rem}
+.tags li{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-strong);border-radius:4px;padding:.2rem .5rem}
+.deps{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);border-top:1px dashed var(--line-strong);padding-top:.7rem}
+.deps a{color:var(--accent);text-decoration:none}
+.certs{margin-top:3rem;display:grid;gap:.9rem}
+.certs h3{font-size:1.1rem}
+.certs ul{display:flex;flex-wrap:wrap;gap:.6rem}
+.certs li{border:1px solid var(--line-strong);border-radius:6px;padding:.5rem .8rem;font-size:.92rem}
+.certs li small{font-family:var(--font-mono);color:var(--muted);margin-left:.4rem;font-size:.72rem}
+
+/* timeline */
+.timeline{margin-top:3rem;border-left:1px solid var(--line-strong);display:grid;gap:2.25rem;max-width:46rem}
+.timeline li{position:relative;padding-left:1.75rem}
+.timeline li::before{content:"";position:absolute;left:-5px;top:.45rem;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent)}
+.timeline li:first-child::before{background:var(--accent)}
+.timeline .when{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.timeline h3{font-size:1.25rem;margin-top:.35rem}
+.timeline h3 span{color:var(--muted);font-weight:500}
+.timeline p{color:var(--muted);margin-top:.4rem;max-width:40rem}
+.links-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.5rem}
+blockquote.reco{margin:3.5rem 0 0;max-width:46rem;padding:1.5rem 1.75rem;border:1px solid var(--line);border-radius:8px;background:var(--bg-elevated)}
+blockquote.reco p{font-family:var(--font-display);font-size:clamp(1.25rem,2.4vw,1.55rem);font-weight:500;letter-spacing:-.01em;line-height:1.35}
+blockquote.reco footer{margin-top:.9rem;color:var(--muted)}
+.subhead{margin-top:4rem;font-size:1.35rem}
+.logos{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;margin-top:1.1rem}
+.logos li{font-family:var(--font-display);font-size:1.15rem;font-weight:500;color:var(--muted)}
+.logos li::after{content:"/";margin-left:1.5rem;color:var(--line-strong)}
+.logos li:last-child::after{content:""}
+.community{display:grid;gap:1rem;margin-top:1.25rem}
+@media (min-width:52rem){.community{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.community li{border-left:2px solid var(--accent);padding:.15rem 0 .15rem 1rem}
+.community h4{font-family:var(--font-body);font-weight:600;font-size:1rem;letter-spacing:0}
+.community p{color:var(--muted);font-size:.95rem;margin-top:.2rem}
+
+/* venture */
+.venture{display:grid;gap:3rem;margin-top:2rem}
+@media (min-width:60rem){.venture{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}}
+.pillars{display:grid;gap:1rem;margin-top:2.25rem}
+@media (min-width:40rem){.pillars{grid-template-columns:1fr 1fr}}
+.pillars li{border-top:1px solid var(--line-strong);padding-top:1rem}
+.pillars h3{font-size:1.1rem}
+.pillars p{color:var(--muted);font-size:.95rem;margin-top:.35rem}
+.fig-card{border:1px solid var(--line-strong);border-radius:8px;padding:1.75rem;background:var(--bg-elevated);display:grid;gap:1rem}
+.fig-card .mono{color:var(--muted)}
+.fig-card h3{font-size:1.75rem}
+.fig-card p{color:var(--muted)}
+
+/* consulting */
+.offers{display:grid;gap:1rem;margin-top:2.5rem;counter-reset:o}
+@media (min-width:52rem){.offers{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.offers li{border:1px solid var(--line);border-radius:8px;padding:1.4rem;background:var(--bg-elevated)}
+.offers .num{font-family:var(--font-mono);font-size:.75rem;color:var(--accent)}
+.offers h3{font-size:1.2rem;margin-top:.5rem}
+.offers p{color:var(--muted);font-size:.95rem;margin-top:.4rem}
+.company{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.company dt{color:var(--muted)}
+.company dd{margin:.3rem 0 0;font-family:var(--font-display);font-size:1.25rem;font-weight:500}
+
+/* faq */
+.faq{margin-top:2.5rem;border-top:1px solid var(--line);max-width:52rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:baseline;padding:1.35rem 0}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .num{font-family:var(--font-mono);font-size:.75rem;color:var(--accent)}
+.faq summary h3{font-size:1.2rem;font-weight:500}
+.faq summary .pm{font-family:var(--font-mono);color:var(--muted);transition:transform .2s ease}
+.faq details[open] .pm{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 1.5rem 2.6rem;max-width:44rem}
+
+/* contact */
+.contact h2{font-size:clamp(2.2rem,5.5vw,3.75rem);max-width:48rem}
+.contact .ctas{margin-top:2.25rem}
+.contact .note{margin-top:1.5rem;color:var(--muted);max-width:40rem}
+
+footer.site{padding-block:2.5rem calc(2.5rem + env(safe-area-inset-bottom,0px))}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center;color:var(--muted);font-size:.9rem}
+footer.site nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:var(--fg)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Mattieu Bernard-Guêle<span>§</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#a-propos"><b>01</b>À propos</a>
+      <a href="#expertises"><b>02</b>Expertises</a>
+      <a href="#parcours"><b>03</b>Parcours</a>
+      <a href="#puzzl"><b>04</b>Puzzl Event</a>
+      <a href="#mbg"><b>05</b>MBG Consulting</a>
+      <a href="#faq"><b>06</b>FAQ</a>
+      <a href="#contact"><b>07</b>Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn-li" href="https://www.linkedin.com/in/mattieu-bernard-guele/" target="_blank" rel="noopener" aria-label="LinkedIn (nouvelle fenêtre)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 22 11.3 22 14.7V21h-4v-5.6c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95V21h-4V9Z"/></svg>LinkedIn</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Sections">
+    <ol class="wrap">
+      <li><a href="#a-propos"><b>01</b>À propos</a></li>
+      <li><a href="#expertises"><b>02</b>Expertises</a></li>
+      <li><a href="#parcours"><b>03</b>Parcours</a></li>
+      <li><a href="#puzzl"><b>04</b>Puzzl Event</a></li>
+      <li><a href="#mbg"><b>05</b>MBG Consulting</a></li>
+      <li><a href="#faq"><b>06</b>FAQ</a></li>
+      <li><a href="#contact"><b>07</b>Contact</a></li>
+    </ol>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="mono kicker"><b>§ 00</b> — Coach agile, transformation à l'échelle &amp; entrepreneur · Lille</p>
+      <h1>Mattieu <span class="surname">Bernard-Guêle</span></h1>
+      <p class="tagline">Je fais <mark>bouger les lignes</mark>.</p>
+      <p class="lede"><u>PI Planning qui ne tient pas</u>, <u>transformation qui s'essouffle</u>, <u>équipes en silos</u>, <u>delivery imprévisible</u> : j'aide les organisations à embarquer leurs équipes et à livrer de la valeur, durablement.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/mattieu-bernard-guele/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 22 11.3 22 14.7V21h-4v-5.6c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95V21h-4V9Z"/></svg>Me contacter sur LinkedIn</a>
+        <a class="btn btn-ghost" href="#expertises">Voir mes expertises</a>
+      </div>
+      <dl class="facts">
+        <div><dt class="mono">Base</dt><dd>Lille · Hauts-de-France</dd></div>
+        <div><dt class="mono">Origines</dt><dd>Tech · Epitech</dd></div>
+        <div><dt class="mono">Statut</dt><dd>Freelance · MBG Consulting</dd></div>
+      </dl>
+    </div>
+    <figure class="portrait">
+      <div class="frame"><img src="assets/mattieu-bernard-guele-coach-agile-lille.jpg" alt="Mattieu Bernard-Guêle, coach agile à Lille, portrait en noir et blanc, assis sur des marches en pierre" width="1066" height="1600"></div>
+      <figcaption class="mono">Fig. 01 — Mattieu Bernard-Guêle, Lille</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block" id="a-propos">
+  <div class="wrap">
+    <p class="sec-label">§ 01 <i>/ 07</i></p>
+    <h2>À propos</h2>
+    <div class="prose">
+      <p>Coach agile freelance basé à Lille, j'accompagne des organisations dans leur transformation à grande échelle : passage du mode projet au mode produit, agilité à l'échelle avec SAFe, pilotage par la valeur et par les indicateurs de delivery. Je travaille au plus près des équipes, des Product Owners et des managers, avec une conviction : une transformation tient quand les gens ont envie d'y prendre part.</p>
+      <p class="todo">Et je vis de l'intérieur ce que j'accompagne : entrepreneur, j'ai cofondé Puzzl Event, avec ses arbitrages, ses clients et sa réalité terrain.</p>
+      <p>Origines tech : formé à Epitech, j'ai commencé comme développeur web et data avant de basculer vers l'agilité. Je parle le langage des équipes que j'accompagne.</p>
+      <p>J'interviens à Lille et dans la métropole lilloise (Villeneuve-d'Ascq, Roubaix, Tourcoing, Marcq-en-Barœul, Lesquin), et plus largement dans les Hauts-de-France.</p>
+    </div>
+    <ul class="stats">
+      <li><strong>24</strong><span>recommandations sur LinkedIn</span></li>
+      <li><strong>2018</strong><span>certifié Professional Scrum Master I</span></li>
+      <li><strong>4 k</strong><span>abonnés sur LinkedIn</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="expertises">
+  <div class="wrap">
+    <p class="sec-label">§ 02 <i>/ 07</i></p>
+    <h2>Expertises</h2>
+    <p class="intro">Six terrains d'intervention, rarement isolés : un PI Planning qui ne tient pas cache souvent des dépendances mal pilotées, et une delivery imprévisible une priorisation qui ne parle pas de valeur. Chaque carte indique ses dépendances.</p>
+    <ol class="cards">
+      <li class="card" id="exp-1">
+        <span class="num">01</span>
+        <h3>Agilité à l'échelle</h3>
+        <p>Mise en place et animation d'un Agile Release Train : PI Planning, synchronisation multi-équipes, Inspect &amp; Adapt.</p>
+        <ul class="tags"><li>SAFe</li><li>PI Planning</li><li>ART Sync</li><li>Inspect &amp; Adapt</li></ul>
+        <p class="deps">Dépend de <a href="#exp-4" data-dep="exp-4">04</a> · <a href="#exp-5" data-dep="exp-5">05</a></p>
+      </li>
+      <li class="card" id="exp-2">
+        <span class="num">02</span>
+        <h3>Du projet au produit</h3>
+        <p>Faire passer une organisation d'une logique projet à une logique produit : rôles, gouvernance, communautés de pratique.</p>
+        <ul class="tags"><li>Organisation</li><li>Rôles</li><li>Gouvernance</li></ul>
+        <p class="deps">Dépend de <a href="#exp-3" data-dep="exp-3">03</a> · <a href="#exp-5" data-dep="exp-5">05</a></p>
+      </li>
+      <li class="card" id="exp-3">
+        <span class="num">03</span>
+        <h3>Coaching d'équipes et de leaders</h3>
+        <p>Accompagnement des équipes, Scrum Masters, Product Owners et managers, sur leurs vrais sujets et dans la durée.</p>
+        <ul class="tags"><li>Équipes</li><li>PO &amp; SM</li><li>Managers</li><li>Changement</li></ul>
+        <p class="deps">Dépend de <a href="#exp-2" data-dep="exp-2">02</a></p>
+      </li>
+      <li class="card" id="exp-4">
+        <span class="num">04</span>
+        <h3>Risques et dépendances</h3>
+        <p>Rendre visibles les risques et les dépendances entre équipes, puis les traiter avant qu'ils ne bloquent la delivery.</p>
+        <ul class="tags"><li>ROAM</li><li>Dépendances</li><li>Coordination</li></ul>
+        <p class="deps">Dépend de <a href="#exp-6" data-dep="exp-6">06</a></p>
+      </li>
+      <li class="card" id="exp-5">
+        <span class="num">05</span>
+        <h3>Priorisation par la valeur</h3>
+        <p>Relier la stratégie aux équipes et arbitrer sur la valeur métier plutôt que sur l'urgence du moment.</p>
+        <ul class="tags"><li>OKR</li><li>WSJF</li><li>Cost of Delay</li></ul>
+        <p class="deps">Dépend de <a href="#exp-6" data-dep="exp-6">06</a></p>
+      </li>
+      <li class="card" id="exp-6">
+        <span class="num">06</span>
+        <h3>Delivery et performance</h3>
+        <p>Mesurer pour progresser : fiabilité des engagements, prévisibilité, indicateurs DORA, avec Jira comme source de vérité.</p>
+        <ul class="tags"><li>DORA</li><li>Prévisibilité</li><li>Jira</li><li>Amélioration continue</li></ul>
+        <p class="deps">Alimente <a href="#exp-1" data-dep="exp-1">01</a> · <a href="#exp-4" data-dep="exp-4">04</a> · <a href="#exp-5" data-dep="exp-5">05</a></p>
+      </li>
+    </ol>
+    <div class="certs">
+      <h3>Certifications</h3>
+      <ul>
+        <li>Professional Scrum Master I<small>Scrum.org · 2018</small></li>
+        <li>SQL Server 70-461 · 70-462 · 70-463<small>Microsoft</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="parcours">
+  <div class="wrap">
+    <p class="sec-label">§ 03 <i>/ 07</i></p>
+    <h2>Parcours</h2>
+    <p class="intro">Version condensée. Le détail, mission par mission, est sur LinkedIn.</p>
+    <ol class="timeline">
+      <li>
+        <p class="when">Aujourd'hui<span class="todo-tag">Depuis ?</span></p>
+        <h3>Fondateur &amp; Coach Agile <span>· MBG Consulting</span></h3>
+        <p>Missions freelance de coaching agile et d'accompagnement de transformations à l'échelle.</p>
+      </li>
+      <li>
+        <p class="when">Dates<span class="todo-tag">À confirmer</span></p>
+        <h3>Coach Agile <span>· WayKonect</span></h3>
+        <p>Transformation agile à l'échelle : passage du projet au produit, animation du PI Planning, de l'ART Sync et de l'Inspect &amp; Adapt, suivi de la fiabilité des engagements, de la maturité agile et des indicateurs DORA.</p>
+      </li>
+      <li class="todo">
+        <p class="when">Dates<span class="todo-tag">À compléter</span></p>
+        <h3>Scrum Master puis Coach Agile <span>· missions précédentes</span></h3>
+        <p>À compléter depuis ton LinkedIn : entreprises, rôles et faits marquants.</p>
+      </li>
+      <li>
+        <p class="when">2015</p>
+        <h3>Développeur <span>· ConexanceMD</span></h3>
+        <p>Conception de portails web internes, dont un outil d'analyse de données branché sur Azure Machine Learning.</p>
+      </li>
+      <li>
+        <p class="when">2012 — 2017</p>
+        <h3>Origines tech <span>· Epitech</span></h3>
+        <p>Formation d'ingénierie logicielle, Bachelor validé en 2015.</p>
+      </li>
+    </ol>
+    <div class="links-row">
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/mattieu-bernard-guele/" target="_blank" rel="noopener">Parcours complet sur LinkedIn</a>
+    </div>
+
+    <blockquote class="reco">
+      <p>« Il ne se contente pas d'accompagner le changement : il donne envie d'y prendre part. »</p>
+      <footer class="mono">Simon Aubry · recommandation LinkedIn</footer>
+    </blockquote>
+
+    <h3 class="subhead">Ils m'ont fait confiance</h3>
+    <ul class="logos">
+      <li>WayKonect</li>
+      <li class="todo">Décathlon</li>
+      <li>ConexanceMD</li>
+    </ul>
+
+    <h3 class="subhead">Transmission et communauté</h3>
+    <ul class="community">
+      <li><h4>Nord Agile</h4><p>Organisateur au sein de l'association agile de la région lilloise.</p></li>
+      <li><h4>Scrum Beer Lille</h4><p>Cofondateur de ces rencontres informelles entre praticiens de l'agilité.</p></li>
+      <li class="todo"><h4>Agilille</h4><p>Membre actif de la communauté agile lilloise.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="puzzl">
+  <div class="wrap">
+    <p class="sec-label">§ 04 <i>/ 07</i></p>
+    <h2>Puzzl Event</h2>
+    <div class="venture">
+      <div>
+        <div class="prose" style="margin-top:0">
+          <p>Puzzl Event loue du matériel et propose des prestations événementielles haut de gamme dans la métropole lilloise : photobooths, tentes, DJ, décoration. Mariages, soirées d'entreprise, anniversaires : un seul interlocuteur pour tout l'événement.</p>
+          <p>Entreprendre m'a appris ce qu'aucun framework n'enseigne : arbitrer avec peu de moyens, tenir une promesse client un samedi soir, et décider vite quand le plan ne se déroule pas comme prévu.</p>
+          <p class="strong">C'est cette réalité terrain que j'apporte dans mes missions.</p>
+        </div>
+        <ul class="pillars">
+          <li><h3>Expérience client</h3><p>Chaque événement est unique, et le client ne voit que le résultat. Tout le reste doit suivre.</p></li>
+          <li><h3>Réalité terrain</h3><p>Logistique, équipes, imprévus : la stratégie se vérifie le jour J, pas dans un tableau.</p></li>
+        </ul>
+      </div>
+      <aside class="fig-card todo">
+        <p class="mono">Fig. 02 — Cofondateur</p>
+        <h3>Puzzl Event</h3>
+        <p>Une entreprise construite sur le terrain : offre, clients, équipes et logistique.</p>
+        <a class="btn btn-ghost" href="https://puzzl-event.fr" target="_blank" rel="noopener" style="justify-self:start">Découvrir puzzl-event.fr</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="mbg">
+  <div class="wrap">
+    <p class="sec-label">§ 05 <i>/ 07</i></p>
+    <h2>MBG Consulting</h2>
+    <p class="intro">Ma société de conseil, basée à Lille : la structure de mes missions freelance de coaching agile et d'accompagnement de transformations. Trois piliers : les personnes, la performance collective, l'impact business.</p>
+    <ol class="offers">
+      <li><span class="num">01</span><h3>Coaching agile</h3><p>Équipes, Scrum Masters, Product Owners et managers, sur le terrain.</p></li>
+      <li><span class="num">02</span><h3>Accompagnement de transformations</h3><p>Du projet au produit, agilité à l'échelle, PI Planning et synchronisation des équipes.</p></li>
+      <li><span class="num">03</span><h3>Pilotage et performance</h3><p>Indicateurs de delivery, prévisibilité, DORA et outillage Jira au service des décisions.</p></li>
+    </ol>
+    <dl class="company">
+      <div><dt class="mono">Forme</dt><dd class="todo">SASU ?</dd></div>
+      <div><dt class="mono">Siège</dt><dd>Lille</dd></div>
+      <div><dt class="mono">Depuis</dt><dd class="todo">20XX</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <p class="sec-label">§ 06 <i>/ 07</i></p>
+    <h2>Questions fréquentes</h2>
+    <p class="intro">Ce que l'on me demande le plus souvent avant de démarrer une mission de coaching agile.</p>
+    <div class="faq">
+      <details>
+        <summary><span class="num">01</span><h3>Qu'est-ce qu'un coach agile ?</h3><span class="pm" aria-hidden="true">+</span></summary>
+        <p>Un coach agile aide une organisation à mieux travailler ensemble pour livrer de la valeur : clarifier les rôles, installer des rituels qui servent vraiment, synchroniser les équipes, rendre visibles les risques et les dépendances, et mesurer les progrès. Je travaille aux côtés des équipes, des Product Owners, des Scrum Masters et des managers, sur leurs vrais sujets.</p>
+      </details>
+      <details>
+        <summary><span class="num">02</span><h3>Quelle différence entre un coach agile et un Scrum Master ?</h3><span class="pm" aria-hidden="true">+</span></summary>
+        <p>Le Scrum Master accompagne une équipe au quotidien. Le coach agile intervient à l'échelle de plusieurs équipes et de l'organisation : agilité à l'échelle, transformation du mode projet vers le mode produit, coaching des managers et des Scrum Masters eux-mêmes. Les blocages se situent presque toujours entre les équipes, c'est là que j'interviens.</p>
+      </details>
+      <details>
+        <summary><span class="num">03</span><h3>Où intervenez-vous ?</h3><span class="pm" aria-hidden="true">+</span></summary>
+        <p>Je suis basé à Lille et j'interviens sur site dans la métropole lilloise (Lille, Villeneuve-d'Ascq, Roubaix, Tourcoing, Marcq-en-Barœul, Lesquin) et dans les Hauts-de-France. Pour une autre région ou un format à distance, parlons-en.</p>
+      </details>
+      <details>
+        <summary><span class="num">04</span><h3>Quels types de missions proposez-vous ?</h3><span class="pm" aria-hidden="true">+</span></summary>
+        <p>Des missions freelance de coaching agile via MBG Consulting, l'accompagnement de transformations à l'échelle (SAFe, PI Planning, passage au mode produit), le coaching de Scrum Masters, de Product Owners et de managers, et la mise en place d'indicateurs de pilotage de la delivery.</p>
+      </details>
+      <details>
+        <summary><span class="num">05</span><h3>Accompagnez-vous les petites structures comme les grands groupes ?</h3><span class="pm" aria-hidden="true">+</span></summary>
+        <p>Oui. J'ai accompagné des transformations à l'échelle de plusieurs équipes dans de grandes organisations, et je connais de l'intérieur la réalité d'une petite entreprise en tant qu'entrepreneur. La coordination de dizaines de personnes comme les arbitrages avec peu de moyens.</p>
+      </details>
+      <details>
+        <summary><span class="num">06</span><h3>Comment démarrer ?</h3><span class="pm" aria-hidden="true">+</span></summary>
+        <p>Écrivez-moi sur LinkedIn. On fait le point sur votre contexte et sur ce qui coince, sans engagement.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <p class="sec-label">§ 07 <i>/ 07</i></p>
+    <h2>Une transformation à relancer, des équipes à embarquer ? Parlons-en.</h2>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/mattieu-bernard-guele/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 22 11.3 22 14.7V21h-4v-5.6c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95V21h-4V9Z"/></svg>Me contacter sur LinkedIn</a>
+    </div>
+    <p class="note">Écrivez-moi directement sur LinkedIn. Pas de formulaire, pas de téléphone sur ce site.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 MBG Consulting · Site statique, sans cookie.</p>
+    <nav aria-label="Liens">
+      <a href="https://www.linkedin.com/in/mattieu-bernard-guele/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#top">Haut de page ↑</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menu-btn'), nav=document.getElementById('mobile-nav');
+  btn.addEventListener('click',function(){
+    var open=nav.hidden; nav.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');
+  });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')){ nav.hidden=true; btn.setAttribute('aria-expanded','false'); } });
+  // highlight dependent cards on hover
+  document.querySelectorAll('.card').forEach(function(card){
+    var deps=[].map.call(card.querySelectorAll('[data-dep]'),function(a){return document.getElementById(a.dataset.dep)});
+    card.addEventListener('mouseenter',function(){deps.forEach(function(d){d&&d.classList.add('linked')})});
+    card.addEventListener('mouseleave',function(){deps.forEach(function(d){d&&d.classList.remove('linked')})});
+  });
+})();
+</script>
+</body>
+</html>
